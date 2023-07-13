@@ -1,0 +1,14 @@
+https://codeforces.com/gym/100279
+Contest: 100279, problem: Problem D. Triangular table
+
+Summary:
+The lengths of the three sides of the triangle and the integral number n (>= 3) are given.
+Find the minimum value of the length of a side of a right n-gon that completely covers this triangle.
+
+Editorial:
+This problem can be solved using binary search algorithm.
+If the solution is x, a right n-gon with sides less than x cannot cover the triangle, and a right n-gon with sides greater than x covers the triangle.
+Therefore, for a right n-gon with a fixed side length, we need to see if it can cover a given triangle.
+If a triangle is covered by a right-n-gon, you can move the triangle inside the polygon so that one of its three vertices coincides with the polygon's vertex and the other vertex lies on the polygon's boundary.
+In this way, the number of vertices n of the polygon, the number of vertices of the triangle lying on this vertex, 3, and the number of vertices lying on the boundary at this time, 2, determine whether the remaining vertices of the triangle are inside the polygon after n calculations.
+So the time complexity is O(log(n) * n * n * 6).
