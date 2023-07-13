@@ -1,0 +1,14 @@
+Link: https://codeforces.com/gym/100906
+Contest: 100906, problem: Problem C. Nimble turtle
+
+Summary: 
+Given a grid where some cells are forbidden.
+You are given three cell groups A, B and C.
+Find the number of pairs (A[i], B[j], C[k]) that starting from cell A[i], you can only go right or down to cell C[k] without passing through prohibited cells and cell B[j].
+
+Editorial:
+This problem can be solved using dynamic programming.
+Suppose we calculate the number of ways we can go from one cell to another between any two cells in A, B, C without going through the forbidden cells.
+Then, the number of ways to go from a to c without passing through b is equal to the number of ways to get from a to c minus the number of ways to get from b to c multiplied by the number of ways to go from a to c.
+With dynamic programming, for each cell, the number of ways from this cell to all other cells can be computed in O(n * n).
+So the total time complexity is O(n * n * n).
