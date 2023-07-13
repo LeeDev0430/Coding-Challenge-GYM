@@ -1,0 +1,16 @@
+https://codeforces.com/gym/100091
+Contest: 100091, problem: Problem D. Color Wizards
+
+
+Summary:
+A tree with roots is given.
+For u and v as a question, find the length of the path from the root to the least common ancestor of u and v.
+
+Editorial:
+This problem is a typical least common ancestor problem.
+Depth first search can be used to find the depth of each node.
+The least common ancestor is the first node with the deepest depth that is the same depth and above every node.
+Using preprocessing, for every node, the node 2^i above this node can be obtained.
+Then, the k-th ancestor of each node can be calculated log times.
+Therefore, since the depth of each node is known and the k-th ancestor of each node is known, the least common ancestor of any two nodes can be calculated in log times.
+Time complexity is O(N * log(N)).
