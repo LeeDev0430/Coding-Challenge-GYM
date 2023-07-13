@@ -1,0 +1,13 @@
+https://codeforces.com/gym/101703
+Contest: 101703, problem: Challenge B. IPvX
+
+
+Summary:
+n IP addresses are given and the starting and ending IP addresses are given.
+Add a minimum number of other addresses to these n IP addresses so that there is at least one contiguous empty IP address between the start and end IP addresses.
+
+Editorial:
+This is a general data structure problem.
+By storing n IP addresses as a set, you can find out how many original IP addresses are between the start and end IP addresses.
+Then, for the original IP address between the start and end IP addresses, it is possible if the two IP addresses immediately before this address or the two IP addresses immediately after this address are empty IP addresses.
+Time complexity: O(N * log(N));
