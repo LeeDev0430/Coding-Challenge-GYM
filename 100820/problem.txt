@@ -1,0 +1,15 @@
+https://codeforces.com/gym/100820
+Contest: 100820, problem: Problem G — limit 2 seconds
+
+Summary:
+The positions of gems within the rectangle are given.
+Find the maximum number of gems that can be passed from the bottom edge of the rectangle to the top edge of the rectangle.
+Here we are given left and right upper bound vectors of the direction we can go.
+
+Editorial:
+We can solve this problem using affine transformations and sets.
+Let's apply the affine transformation to the original gems in the coordinate system with the left and right quadrant vectors as two-order vectors.
+Then, if the direction vector is between the left and right upper bound vectors, it means that both the x and y coordinates are non-decreasing since it is a transformed coordinate system.
+This is equivalent to the problem of finding the largest non-decreasing permutation of an array of y-coordinates given the points in order of non-decreasing x-coordinates.
+This algorithm is a classical algorithm and is easily solved using sets.
+The time complexity is O(n * log(n)).
