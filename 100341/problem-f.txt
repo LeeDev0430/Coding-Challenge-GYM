@@ -1,0 +1,17 @@
+https://codeforces.com/gym/100341
+ Contest: 100341, problem: Problem F. Independent Set
+
+ Summary:
+ A serial and parallel graph is given.
+At this time, find the maximum size of the largest group of independent vertices.
+
+Editorial:
+
+It can be solved using depth-first search and dynamic programming.
+Depth-first search allows you to first search two subgraphs connected in parallel or serially.
+Let dp[0] be the maximum size of a group of independent vertices that does not include all root points at both ends in the graph.
+Let dp[1] be the maximum size of a set of independent vertices that includes the right root and does not include the left root.
+Let dp[2] be the maximum size of the set of independent vertices that includes the left root and does not include the right root.
+Let dp[3] be the maximum size of a set of independent vertices that includes both the left and right roots.
+If the dynamic planning values are obtained from the left and right subtrees, respectively, dp[0 - 3] in the case of connecting them in series and in parallel is the sum or common root of the dynamic planning values obtained from the right and left subtrees, respectively. In the case of including , it is determined as a value obtained by subtracting 1 or 2.
+The time complexity is O(n * 4).
