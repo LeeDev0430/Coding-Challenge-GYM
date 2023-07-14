@@ -1,0 +1,24 @@
+Contest: 102772, problem: E
+https://codeforces.com/gym/102772/problem/E
+
+Summary:
+This problem is an interactive problem and can be solved using constructive algorithms.
+All you need to do is find a path cycle through which the snake passes through all the cells regardless of the position of the apple.
+If n or m is even, there is a Hamiltonian period through all cells in the field.
+Between two adjacent eaten apples, the snake takes no more than n * m steps.
+Therefore, the total number of steps will not exceed 10000.
+If n and m are both odd, one corner cell can be cut out of the field, and a Hamiltonian cycle can be constructed over it.
+The only difference is if the apples are in the far corner cage.
+In this case, just drive when the snake's head passes this corner.
+Time complexity is O(n * n * n).
+
+Editorial:
+This problem is an interactive problem and can be solved using structural algorithms.
+All you have to do is find a circular path for the snake to go through all the cells of the grid, regardless of where the apple is.
+If n or m is even, there is a Hamiltonian path through all cells in the field.
+It takes no more than n*m steps to eat a new apple.
+Therefore, the total number of steps will not exceed 10000.
+If n and m are both odd, one corner cell can be cut out of the field, and a Hamiltonian period can be constructed over it.
+The only difference is whether the apples are in the far corner cage.
+In this case, just drive when the snake's head passes this corner.
+Time complexity is O(n * n * n).
