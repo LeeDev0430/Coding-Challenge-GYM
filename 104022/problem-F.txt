@@ -1,0 +1,10 @@
+https://codeforces.com/gym/104022/problem/F (edited) 
+
+Summary:
+This problem is a combination of binary search and dynamic programming.
+Counterclockwise the vertices of the convex polygon p[1], p[2], ..., p[k] !.
+Then the area of this polygon S = [Sum of (p[i] ^ p[i+1])/2] and the sum of squares of the perimeter L = Sum of [(p[i] - p[i+1] ) * (p[i] - p[i+1])].
+So S/L is greater than X means S - L * X = Sum of [(p[i] ^ p[i+1])/2 - (p[i] - p[i+1]) * ( p[i] - p[i+1]) * X] is greater than or equal to 0.
+When X is fixed, this can also be achieved by dynamic programming considering that the angle of vector(p[i+1]-p[i]) is greater than that of (p[i+2]-p[i+1]). The maximum value of S - L * X can be obtained in O(M = N * N).
+Therefore, the X of the problem can be found in O(N * N * log(C)) by binary search.
+The memory complexity is N * N.

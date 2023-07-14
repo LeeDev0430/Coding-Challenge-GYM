@@ -1,0 +1,18 @@
+https://codeforces.com/gym/103627/problem/F
+
+Summary:
+Given a coordinate range of 250000, N rectangles with edges parallel to the coordinate axes are given.
+Given the M number of operations as follows.
+Let's take a rectangle and in any direction ((+1,0), (+1,+1), (0,+1), (−1,+1), (−1,0), (−1,− 1), (0,−1), (+1,−1) in one direction) by d.
+At this time, this rectangle is moved by a distance of 1, and a new rectangle is created each time.
+After M operations, Q questions are given.
+Every question is, for any cell in the plane, how many rectangles there are that contain this cell.
+Where (1 <= N, M, Q <= 250000).
+[4:44 AM] Let's solve an easier variant where M = 0 holds. For each rectangle [x1, x2] × [y1, y2], create two points (x1, y1), (x2 + 1, y2 + 1) of weight 1, and (x1, y2 + 1), (x2 + 1, y1). By the inclusion-exclusion principle, the number of rectangles containing the point (x, y) is the sum of weight of points over the area [1, x] × [1, y]. This value can be computed via sweep line over x-coordinate, where you use Segment tree as an underlying structure to maintain prefix sums over y-coordinate.
+With this interpretation, you have N + M trails of weighted points moving over the coordinate axes and both diagonals and need to compute the sum of weights over the area [1, x] × [1, y]. When solving this problem, we can consider each direction independently and sum the total weights over all directions. Let's consider the solution for all four cases of directions.
+Case 1: Parallel over x axis. Use sweeping over y-coordinate. You have to maintain a data structure that supports range addition and range sum query. Segment tree with lazy propagation, or storing linear functions suffices. 
+Case 2: Parallel over y axis. Swap the x, y coordinate and call the solver for case 1. 
+Case 3: Parallel over y = x. Let the queried area be [1, cx] × [1, cy]. Let's divide these queried areas into two triangles: One with x − y ≤ cx − cy, y ≤ cy and other with x − y > cx − cy, x ≤ cx. For both cases, you want to compute the sum of intersection with line y − x = C, L ≤ x ≤ R, or equivalently L + C ≤ y ≤ R + C. By replacing the parameter y − x as x-coordinate for the first, and y-coordinate for second, those two problem is reduced to that of Case 1 or Case 2. 
+Case 4: Parallel over y = −x. Let the queried area be [1, cx] × [1, cy]. Then the queried area is an intersection of area y ≤ cy, x + y ≤ cx + cy subtracted by intersection of area x > cx, x + y ≤ cx + cy. 
+From this point you can do similarly with Case 3. 
+As the Case 1 subproblem can be solved in O((N + M + Q) log C) time, and other subproblem can be reduced to Case 1 in linear time, the whole problem is solved in O((N + M + Q) log C).

@@ -1,0 +1,6 @@
+https://codeforces.com/gym/102262/problem/J
+
+Summary:
+This is similar to the classic missing bracket finding problem.
+Matching pairs of bracket are obtained by taking a stack, pushing the bracket on the stack when it starts, and popping the bracket off the stack when the bracket ends.
+Just in this problem, since given a Json string, think of using bracket in the form of {} and "" instead of parentheses ().

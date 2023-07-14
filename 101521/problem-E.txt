@@ -1,0 +1,15 @@
+https://codeforces.com/gym/101521/problem/E
+
+Summary:
+There are two tree-shaped bacteria, a sunburst and a chain of sizes 10 each.
+They grow until they reach size 1000 by way of which new nodes are randomly attached to existing nodes (connecting nodes in the tree).
+Given a random tree-shaped bacterium of size 1000, predict which of the above two bacteria this bacterium grew from.
+If the prediction probability is greater than 95%, it is considered correct.
+
+Editorial:
+
+We need to find a function and a threshold that can classify a bacterial population grown from two bacteria with a probability of 95%.
+Bacteria grown from sunburst bacteria always have a node with a degree of 9 or higher. (at least with the original bacteria).
+However, bacteria grown from chain-like bacteria rarely have relatively few nodes with a degree of 9 or higher.
+Now, for a node with a degree of 9 or more, considering a tree rooted at this node, the problem is solved by calculating the sum of several largest sizes among the sizes of subtrees of this node, using this as a function, and setting a threshold value.
+This is just one way and there may be many ways to solve this problem.
