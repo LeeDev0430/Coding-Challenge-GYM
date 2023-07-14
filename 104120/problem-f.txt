@@ -1,0 +1,15 @@
+https://codeforces.com/gym/104120/problem/F
+
+Summary:
+Given arrays a and b of length N.
+Let's define the beauty of arrays c0, c1, ..., cn-1 as max(ci - c[j]) (0 <= i <= j < n).
+Proceed with the following two operations.
+1. Given l, r, and k, replace a[i] with b[(k+i - l)%N] for i such that l <= i <= r. And print the beauty of array a.
+2. Given l, r, print the beauty of array a(l, r).
+
+Editorial:
+To solve this problem we use segment trees and rmq trees.
+In general, the task of replacing all numbers in a certain interval of an array a with a certain number can be done with a segment tree.
+However, in this problem, we need to replace the intervals in array a with subarrays in array b.
+Therefore, the beauty of an arbitrary section of a given array b can be obtained in O(1) using an rmq tree in addition to a segment tree.
+Then it can be done with a time complexity of n * log(n) + m * log(n) = (n + m) * log(n).

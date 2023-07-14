@@ -1,0 +1,25 @@
+https://codeforces.com/gym/100541/problem/J
+
+Summary:
+The game consists of several blocks of the same size. Each block is divided into 4 triangles, each taking a color of blue (B), green (G), red (R) or yellow (Y) and an integer from 0 to 9.
+Starting from the central block, each stage allows players to attach new blocks to existing blocks in such a way that two adjacent triangles must have the same color in one of four directions along a horizontal or vertical axis centered on the central block. The score for each block is calculated based on the color(c) of the adjacent triangle, the integer(x) of the adjacent triangle in the new block, and the sum(S) of the four integers in the new block as follows:
+If c is Blue : S - x
+If c is Green: S + x
+If c is Red: S * x
+if c is Yellow : floor(S / x) if x > 0. Otherwise 0.
+Given a list of blocks, players use the first block as the center block and add or skip the remaining blocks one at a time to the board. Blocks can be added by rotating them while maintaining their order.
+Find the maximum total score a player can get.
+
+Editorial:
+This is a classic dynamic programming problem.
+Let f(i, x, y, z, t) be the maximum score you can get if you use blocks 1..i and the colors in the four directions are x, y, z, t.
+f(i + 1, x', y', z', t' by trying all possibilities of adding the (i + 1)th block from f(i, x, y, z, t) in one of the four directions ) can be calculated.
+In addition, since f(i + 1, ...) is related only to f(i, ...), two crossing arrays can be used.
+This solution has a time complexity of O(n * (10 ^ 4) * 4 * 4), which takes about 4e9.
+However, you can try the following optimizations.
+- Consider only reachable states (i, x, y, z, t).
+- Consider only the state where x <= y <= z <= t.
+The number of states satisfying the above condition is 35.
+Therefore, the time complexity at this time is O(n * 35 * 4 * 4), which is about 1.4e8, which satisfies the limitation of the problem.
+Time complexity <= N * 560.
+Memory complexity < 1e4.
