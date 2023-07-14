@@ -1,0 +1,11 @@
+https://codeforces.com/gym/102697/problem/169
+
+
+Summary:
+Given a string in Morse code. At this time, decode it into the original string.
+
+Editorial:
+This is a common implementation string problem.
+In the problem, we gave a mapping between Morse code and English characters.
+Therefore, you can decode using a map or substituting 26 English characters.
+Time complexity is O(n).
