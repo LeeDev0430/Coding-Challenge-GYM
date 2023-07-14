@@ -1,0 +1,13 @@
+Contest: 100100, problem: Task D: Inserting Key Values
+https://codeforces.com/gym/100100
+
+Summary:
+There are arrays that are considered infinite in length.
+Each element of the array is initially 0.
+Find the array after performing n operations to insert a specific value at a specific location.
+
+Editorial:
+
+This problem can be solved by using the Treap (Random value splay tree) algorithm.
+The operation of inserting an arbitrary value at an arbitrary position can be performed with a time complexity of log(n).
+The time complexity is O(n * log(n)).

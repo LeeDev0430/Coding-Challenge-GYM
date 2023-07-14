@@ -1,0 +1,13 @@
+ Contest: 100867, problem: Problem I. Irrationality
+https://codeforces.com/gym/100867
+
+Summary:
+Given an irrational fraction with denominator √p1 + √p2 + ... + √pn and numerator 1.
+Rationalize the denominator of this fraction.
+
+Editorial:
+
+The method of rationalizing the denominator is basic mathematical knowledge.
+The basis for this problem is to keep the coefficients that grow when rationalizing, while keeping the fractions irreducible.
+However, this is not a problem since Python generally supports calculation of large integer numbers.
+The time complexity of rationalization is O(n * n).
