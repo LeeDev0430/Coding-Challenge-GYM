@@ -1,0 +1,22 @@
+https://codeforces.com/gym/101980
+ Contest: 101980, problem: Problem F. LinkedList’s Bizarre Adventure
+
+ Summary:
+ A tree and two players are given.
+Each competitor competes to obtain a chain for himself.
+Each turn, a player removes one of the leaves and passes it to the opponent.
+If the player who gets the chain first wins, who will win?
+
+Editorial:
+
+First of all, if the given tree is a chain, the first player wins.
+Let's say it's not.
+That is, there is at least one node whose degree is greater than 2.
+Now consider the node whose degree is greater than 2 that is removed last.
+If a player removes this node, it becomes a chain, so the opponent wins.
+Therefore, we try not to remove the last node whose degree is greater than 2 as much as possible.
+So this last node later becomes a star with node length 1.
+At this time, the players reduce the order of the star by one, removing leaf points one by one.
+Therefore, only the evenness of the size of the tree is relevant, and the shape of the tree is irrelevant.
+If the size of the result tree is odd, the first player wins, otherwise the second player wins.
+The time complexity is O(n).
