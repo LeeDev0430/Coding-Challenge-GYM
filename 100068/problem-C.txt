@@ -1,0 +1,16 @@
+https://codeforces.com/gym/100118
+Contest: 100118, problem: Task C. Strengthening bridges
+
+Summary:
+Given a simple graph with n vertices.
+Find the number of minimum spanning forest.
+
+Editorial:
+Solve individually for each connected component.
+The answer is the product of methods for each connected component.
+Since the question says that vertices have degree at most 2, each connected component of the graph is a chain or cycle.
+A chain of length L consists of (L - 1) edges, so there is one spanning tree.
+A period of length L consists of L edges, and one edge must be removed and left behind.
+So there are L spatting trees in this cycle.
+Determines the type of connected component by counting the number of edges and vertices on each connected component.
+Time complexity is O(n).

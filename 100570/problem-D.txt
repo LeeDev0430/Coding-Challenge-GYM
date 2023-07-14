@@ -1,0 +1,22 @@
+https://codeforces.com/gym/100570/problem/D
+
+Summary: 
+There are two squares of size 10^18 * 10^18 in a plane.
+Each cell in every square has a +1 or -1.
+There are two types of operations:
+1. Multiply all numbers in a row by -1.
+2. Multiply all numbers in the column by -1.
+The numbers in the j - column of the i - row of the first square are ai, j and the second square is bi, j.
+Initially, there is no information about the numerical values within the square.
+In each query, give the values x ,y, a(x,y), b(x,y) (values not obtained before) and find whether the first square can be converted to the second square.
+
+Editorial:
+
+It doesn't matter how many times you run the operation for each row or column.
+What matters is whether it's odd or even.
+So we assign a boolean to each row and each column so that row number i's boolean is ri and column j's boolean is cj.
+The others are the same as 2-sat except that the graph in this problem is undirected.
+For each query, if ax, y = bx, y then add an edge between rx and cy and between ¬rx and ¬cy.
+Otherwise, add an edge between ¬rx and cy and an edge between ¬cy and rx.
+You can use disjoint sets with arrays or vectors, and at each step the answer will be 'YES' if booleans such as x and ¬x are in the same component.
+The time complexity is O(N * log(N)).
