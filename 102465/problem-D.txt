@@ -1,0 +1,16 @@
+https://codeforces.com/gym/102465/problem/D
+
+Summary:
+There is a city modeled as a grid of shape n*m.
+At the vertices of this grid are the museums modeled as points.
+Now, a horizontal straight road from west to east and roads heading north and south from this road must be additionally built so that all museums can be visited.
+At this time, find the minimum value of the travel distance when visiting museums from the west end to the east end.
+
+Editorial:
+This problem is a simple dynamic planning algorithm problem.
+Let's say that none of the roads we built go past the museum.
+If there are two museums closest to the north and south of the road, there is no dot on the straight line between them.
+At this time, if the road is moved north or south by 1, the total path length increases or decreases at equal intervals.
+Thus, a road that minimizes the length of the route may be said to pass at least one museum.
+At this time, when the museums are sorted in relation to the y value and the road passing through each museum is constructed using the dynamic programming method, the total path length can be obtained.
+Time complexity is O(n * log(n))

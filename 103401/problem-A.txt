@@ -1,0 +1,15 @@
+https://codeforces.com/gym/103401/problem/A
+
+Summary:
+Find the solution to the given 15 puzzles (also called Gem Puzzle, Boss Puzzle, Game of Fifteen, Mystic Square and many others).
+
+
+Editorial:
+
+This task is an implementation problem.
+First, it must be determined whether a solution to the puzzle exists.
+The fact is that swapping the places of two elements in an array does not change the evenness of the reverse conductance.
+You can think of the 16 squares of the puzzle as one array, and the operation is a series of swaps as above.
+Therefore, it is not difficult to know that a solution exists if the evenness of the inverse of the current state and that of the final state match.
+There is no need to use a special algorithm, the important thing is to structure the condition and operation of the puzzle.
+After that, of course, you can manipulate it however you think, just like the manual, but it's better to use a breadth-first search to find the solution with the shortest number of operations.

@@ -1,0 +1,24 @@
+https://codeforces.com/gym/103637/problem/H
+
+
+Summary:
+2xn teams from m countries competive.
+Teams are randomly matched into n pairs.
+We know the expected value of the number of pairs in which teams competive in the same country.
+Find a possible country distribution of teams which satisfy above condition.
+
+Editorial:
+It is safe to say that x/y is an irreducible fraction.
+Let C(a, b) be the number of combinations from a to b.
+Then the total number of matching methods is C(2 * n, n) * (n!).
+Here, C(2 * n, n) is the number of ways to divide 2 * n teams into two classes, and (n!) is the number of ways to match the divided teams.
+Suppose a country has x teams.
+Then, the number of ways that two teams in this country are matched is C(x, 2) * 2 * C(2 * n - 2, n - 1) * ((n - 1)!).
+Here, C(x, 2) * 2 is the number of ways to select two teams from this country and arrange them to match each other.
+C(2 * n - 2, n - 1) is the number of ways to match the remaining n - 2 teams.
+So the expected value x / y of the problem is Sum of [C(x, 2) * 2 * C(2 * n - 2, n - 1) * ((n - 1)!)] / [C(2 * n , n) * (n!) ], and simply Sum of C(x, 2) / (2 * n - 1).
+Since 2 * n - 1 is odd, y must be odd.
+So we just set n and x such that the Sum of C(x, 2) is (2*n - 1) * x / y.
+2 * n - 1 can be set as a multiple of y.
+As you can easily see, the Sum of C(x, 2) can take all values below C(n, 2).
+Time complexity is O(n).

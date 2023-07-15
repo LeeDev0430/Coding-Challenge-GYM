@@ -1,0 +1,22 @@
+https://codeforces.com/gym/104181/problem/G
+
+
+Summary:
+A plane is given N roses (marked by dots on the plane) and a girl with an E energy level.
+She moves at a rate of 1/sec.
+When she plucks rose i from her field, the other roses disappear and a monster appears at a distance of r_i meters from the rose, constrained to move along the perimeter with radius r_i (the center of the rose).
+Unfortunately her rain monster moves k_i times faster than her and she does her best to catch her. For each of her roses, she has two options. She can move away directly from the rose. Alternatively, she can run along a circle of radius e meters centered on the rose, but she can only do this once for the current rose, so it costs ⌈e⌉ energy and she can run along this circle forever if she wants. When she escapes her monster's clutches, she sees all the other roses reappear.
+What is the maximum number of roses she can collect with her E energy?
+
+
+Editorial:
+
+First, if k is not greater than pi (circumference = 2*pi*1/2), then she can escape the monster's grasp by running straight away in the opposite direction.
+It does not consume energy.
+If k - pi is greater than 1, no matter how hard she tries, she cannot escape the monster's grasp.
+The energy required at this time can be thought of as infinite.
+Otherwise, she must run along a circle with a radius of r * (k - pi) / k, get to the opposite side of the monster, and then run out of the circle.
+The required energy is ⌈r * (k - pi) / k⌉.
+So, since she knows the minimum energy required for each rose, she only needs to take one rose that requires the least energy.
+She just needs to place them in order of increasing required energy and take them in turn, starting with the first rose.
+The time complexity is n * log(n).

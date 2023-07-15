@@ -1,0 +1,17 @@
+https://codeforces.com/gym/103104/problem/B
+
+
+Summary:
+In a circle of radius R, N points are given with a distance of 2 or more between any two points.
+At this time, is it possible to add a point in the circle so that the distance between any two points is still more than 2?
+Find the location of the point to add, if possible.
+
+Editorial:
+A point with a distance of more than 2 from a point means that when a circle with a radius of 2 is drawn centered on this point, it lies outside the circle.
+Therefore, when a circle with a radius of 2 is drawn with this point as the center for all points in the current circle, it is equivalent to the problem of finding points that do not belong to these circles inside the entire large circle.
+For each circle, if this circle does not intersect with any other circle, the points around it satisfy the condition.
+As you can easily see, the point we want to add can either be on the circumference of the above isolated circle, or one of the intersection points of two intersecting circles.
+Since the distance between any two points is more than 2, the number of circles that can contain this circle is less than 6 even if you catch any point.
+Therefore, if we consider all the above points, we can find a solution.
+The time complexity of this algorithm is of the order of N * C.
+Here C is a non-large constant.
