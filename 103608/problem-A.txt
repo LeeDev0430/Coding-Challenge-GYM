@@ -1,0 +1,12 @@
+https://codeforces.com/gym/103608/problem/A
+
+Summary:
+A pair of integers (x, y) such that a * x + b * y <= f (0 <= x, y) for a given integer a, b, f (1 <= a, b, f <= 1e9) find the number of
+
+
+Editorial:
+It is safe to say that a is not less than b.
+If a is greater than 3e4, then x <= 3e4, so x <= f / a <= 3e4, so all possible x's are considered.
+Conversely, if a is not greater than 3e4, when all (x, y) are one solution, (x + b * k, y - a * k) is another solution, so it is okay to say that x is less than b.
+For each such x, the number of possible k is derived and summed.
+So the time complexity is about 3e4.

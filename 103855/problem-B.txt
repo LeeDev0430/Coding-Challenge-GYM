@@ -1,0 +1,37 @@
+https://codeforces.com/gym/103855/problem/B
+
+
+Summary:
+Consider a planar graph shaped like a convex polygon, where each vertex is numbered clockwise from 1 to 2N.
+An edge connects vertex i and vertex (i + 1) mod 2N along the perimeter of the current convex polygon.
+Each vertex is colored with one of N colors, numbered 1 through N, and for each color i (1 ≤ i ≤ N) there are exactly two vertices (x_i, y_i) with color i.
+We want to add exactly 2N - 3 bi-directional edges to this graph so that:
+-Each edge must connect two different vertices via a straight line segment.
+-For any two distinct vertices, there can be at most one edge directly connecting the two vertices.
+-The graph must still be planar.
+Among all possible edge additions satisfying the above conditions, find one that minimizes ∑(i = 1,N) dist(x_i, y_i).
+
+Editorial:
+If you simply add N − 3 edges from vertex 1 to vertices 3, 4, . . . , 2N − 1, then the shortest path between any two vertices has length at most 2.
+This immediately gives a solution with value at most 2N − 1. 
+The value can't be less than N, so it lies somewhere in [N, 2N − 1].
+Let's denote arc i as an arc that connects vertices xi and yi.
+Consider another graph of N vertices, where each arc is a vertex, and two vertices are connected by an edge if and only if the corresponding arcs intersect.
+For each connected component of this graph, apply the above solution independently: Take any vertex in the component, and connect it with all others. 
+This solution is valid because no arcs are intersecting (the convex hulls of each connected component do not intersect).
+The value of this solution is 2N minus the number of connected components.
+Now we show that we can't do better.
+Let's think about a different (yet similar) problem.
+We start with 2N vertices and no edges in a planar graph.
+We need to add the minimum number of edges between those vertices so that the graph remains planar and all vertices of the same color are connected.
+In this problem, the answer is at least 2N minus the number of connected components.
+The arcs that belong to the same connected component belong to the same connected component in that planar graph as well, so we have the upper bound on the number of connected components in the planar graph we build.
+Even if we assume that each connected component is a tree (that has the smallest number of edges), we need at least 2N minus the number of connected components.
+Let's show that the original problem has an answer not less than in the modified problem.
+If we mark the shortest path between xi and yi in the augmented graph, this corresponds to the solution for the modified problem.
+Obviously, the number of the marked edges is not greater than the sum of the shortest paths.
+Now what remains is to implement the above algorithm efficiently.
+The naive implementation of finding the connected components takes O(N2) time.
+There are numerous ways to improve this algorithm.
+One way is to use segment trees for doing DFS efficiently in the graph. Another way is to use hashes or union-find.
+The time complexity of this problem is N * log(N).
