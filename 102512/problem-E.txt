@@ -1,0 +1,17 @@
+https://codeforces.com/gym/102512/problem/E
+
+Summary:
+Given a integer x, create a matrix of shape n * m, containing x nice slices.
+Here, a good slice is a 1*x or x*1 shape and the inner sequence is a monotonically increasing or monotonically decreasing sequence.
+
+
+Editorial:
+This problem is a structural problem and there are various approaches to it, and I used the following approach.
+A 1D strip can be divided into chains of monotonic segments.
+This allows us to generate all values of X' by doing a simple dp.
+You can create 1D strips of size N.
+Let SN represent the set of values that can be produced using a 1D strip of size N.
+You want to retrieve N values from SM that sum to H.
+Since the set of SMs contains almost all possible values, intuitively, if we choose the largest value in SM that does not exceed the current target value of H each time, after M iterations we will probably have an answer.
+In practice, this greedy approach works very well and you can use this idea for a full solution.
+Time complexity is O(n).
