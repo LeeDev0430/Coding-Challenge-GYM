@@ -1,0 +1,15 @@
+https://codeforces.com/gym/102538/problem/G
+
+Summary:
+Given an undirected simple graph, each vertex is involved in a circular path of length k(1 <= k <= 10) at most.
+For each question, color a vertex and find the distance from any vertex to the nearest colored vertex.
+
+Editorial:
+
+This task is solved by combining depth-first search and breadth-first search.
+The approach for this task is as follows.
+First, if we use depth-first search to divide the graph into strongly connected chunks, the general graph becomes a tree made up of these chunks.
+Then, for every query that fills in every color, we use breadth-first search to update the distances of points less than or equal to k from this point.
+At this time, if a point is not updated, there is no need to continue the breadth-first search from this point.
+Then, for every point, we get the closest distance from this point among the colored points.
+The time complexity is n * m * k.
