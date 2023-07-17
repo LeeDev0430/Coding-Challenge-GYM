@@ -1,0 +1,16 @@
+ Contest: 101527, problem: PROBLEM F. Matches are not a toy for children!
+https://codeforces.com/gym/101527 (edited) 
+
+Summary:
+Given two sets A and B containing n match values in a plane.
+You can catch one match value at a time and move it parallel.
+Find the minimum number of operations required to make group A the same shape as group B.
+
+Editorial:
+This problem can be solved using normal geometry and data structures.
+Use vector decapsulation and map data structure.
+When group A is made to have the same shape as group B, the deviation is constant for each corresponding match value.
+Therefore, the match values that did not move at this time are match values whose deviation from the corresponding match values in meeting B is the same as the above deviation.
+Among the deviations of each match value pair in A and B, the frequency of the deviation with the highest frequency is the maximum number of match value pairs that do not need to be moved.
+Therefore, at least match values excluding non-moving match values should be moved.
+The time complexity is O(n * n * log(n)).

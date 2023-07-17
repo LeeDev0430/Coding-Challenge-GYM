@@ -1,0 +1,18 @@
+Contest: 100178, problem: Problem 24. Camelot
+https://codeforces.com/gym/100178
+
+Summary:
+A plane is given n non-intersecting circles and m integer-valued points.
+Now, we're going to use all the dots to gather them together.
+However, for each given circle, the cost of passing the boundary of this point was given.
+And each point has a cost equal to the value of the integer value assigned to the point multiplied by the cost of passing through the circle.
+Find the minimum cost to combine the given points into one point.
+
+Editorial:
+This problem can be solved using geometry and depth-first search.
+First of all, since the circles do not intersect, any two circles are separated from each other or contain each other.
+For each circle, considering the circles directly contained in this circle as children, all the given circles form a graph of a tree.
+In this case, the cost of passing each edge is given.
+Therefore, we just need to calculate the cost of moving points to any node in this tree.
+This is a classic tree dynamic programming problem and will not be discussed further.
+The time complexity is O(n \* m).

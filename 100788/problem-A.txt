@@ -1,0 +1,13 @@
+Contest: 100788, problem: Problem A. The best gift is an array!
+https://codeforces.com/gym/100788
+
+Summary:
+Given two arrays A and B of length n and m respectively.
+Among the subsegments of B, find the one that collectively matches A.
+
+Editorial:
+This problem is a problem that utilizes a hash algorithm.
+We need to construct a collective hash of an array and allow elements to be added to or removed from it.
+There are many ways to do this, but simply correspond the collection of integers to the sum of the square roots of each element.
+Then it is easy to find the subsegment of array B that matches the hash value of array A.
+Time complexity is O(n).
