@@ -1,0 +1,17 @@
+ Contest: 101308, problem: Problem G. Garbling Game
+https://codeforces.com/gym/101308
+
+
+Summary:
+Given a matrix of shape n*m, the numbers from 1 to n*m are placed sequentially.
+Now the operations are given sequentially, starting with the 2 * 2 sub-matrix in the upper left corner.
+Every operation rotates the 2 * 2 matrix right or left or does not rotate.
+When this operation sequence is repeated s times, find the frequency of the elements appearing in the upper left corner of the 2 * 2 submatrix each time the operation is executed.
+
+Editorial:
+This task is solved in O(n * m * log(S)) time complexity by utilizing permutation fast power algorithm and implementation.
+If you perform one manipulation sequence, you can know the permutation of the moved position for the elements of the entire matrix.
+To find the S square of this permutation, we use the fast power algorithm.
+The permutation is performed by attaching the frequency together.
+The frequencies are summed up.
+The complexity of multiplying two permutations is O(n * m).
