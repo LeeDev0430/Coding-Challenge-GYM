@@ -1,0 +1,20 @@
+Contest: 100831, problem: Challenge C. Districts
+https://codeforces.com/gym/100831
+
+
+Summary:
+Given a triple of pairs of integers n and m.
+At this time, construct the sequence A as follows.
+- The length of A is n.
+- For every i, j, and k included in the triple, A[i], A[j], and A[k] must not all be the same.
+Minimize the number of different elements of A.
+
+Editorial:
+
+This problem is a construction problem using state dynamic programming.
+We use dynamic programming for a set of subsets of n integer sequences that we want to construct using state-dynamic programming.
+First, for each set, it is possible to know whether it is okay to assign the same value to all numbers in this set.
+The time complexity of this part is O((2 ^ n) * m).
+For each subset, the dynamic programming value is optimized by multiplying the state value by 1 minus the set of elements with the same value in this set.
+The time complexity of this part is O((3 ^ n)).
+The total time complexity is O((2 ^ n) * m + 3 ^ n).

@@ -1,0 +1,17 @@
+https://codeforces.com/gym/103914/problem/I
+
+
+Summary:
+Given K undirected graphs G1, G2, ..., Gk.
+For two undirected graphs, for any two vertices u and v, if the connectivity in the two graphs is the same, the connectivity is said to be the same.
+Each graph is of size n.
+Manipulations can add or remove any edge from the graph.
+At this time, divide the given graph into groups with the same connectivity.
+
+
+Editorial:
+This task utilizes the Disjoint set union (DSU).
+We can solve it in O(n * log(n) * log(n)) using the above algorithm.
+You can use the DSU to add or remove edges to maintain the association.
+If we get the hash of the vertices in this connected chunk and get the hash of this hash set, the graphs in which the connected chunks match will have the same hash value.
+Therefore, you can split the graphs with the same hash value.

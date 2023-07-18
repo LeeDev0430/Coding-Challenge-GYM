@@ -1,0 +1,16 @@
+https://codeforces.com/gym/101657
+Contest: 101657, problem: Problem C — limit 10 seconds
+
+Summary:
+A set of points is given in the plane.
+Find the minimum area of the parallelograms containing this set of points.
+
+Editorial:
+This problem can be solved using elementary geometric methods and Graham's Algorithm.
+Graham's Algorithm is used to find the convex hull of a given set of points.
+The four sides of the parallelogram we are trying to find contain at least one point on the convex hull.
+If a side does not contain a point on the convex hull, the area can be further reduced by moving this side in parallel until it touches the convex hull.
+Furthermore, based on elementary mathematical knowledge, it can be seen that at least one side includes the edge of the convex hull.
+Therefore, the side of the convex hull lying on the edge of the parallelogram and the apex of the convex hull lying on the opposite side of the edge can be considered.
+At this time, the opposite sides of the parallelogram are determined uniquely as two straight lines that are perpendicular to the above side and touch the hull, and the area can be obtained.
+The time complexity is O(n * n * n).
