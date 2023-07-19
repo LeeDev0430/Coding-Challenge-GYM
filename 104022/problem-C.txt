@@ -1,0 +1,20 @@
+ Contest: 100402, problem: Problem C. Nothing On TV
+https://codeforces.com/gym/100402
+
+Summary:
+A plane is given n points.
+Find all good points that satisfy the following conditions.
+- A good point is one of the given n points.
+- A circle that has an origin and a good point at both ends of its diameter contains no other good points.
+
+Editorial:
+
+This test utilizes a sorting algorithm and the Pythagorean theorem.
+The time complexity of O(n * log(n)) is required using the sorting algorithm and the Pythagorean theorem.
+A circle drawn from a point whose norm is small to two points does not include the other point.
+So it's okay to start with points with small norm and add them to good groups.
+When adding a point, consider whether there is no good point already added to the drawn circle from this point.
+Let's look at the two good points on both ends that have the closest angle to this point.
+If only these two points lie outside the circle you drew from the newly added points, you know that the other good points are also outside this circle.
+(A point lies outside the circle with diameters of the two points) is both necessary and sufficient (the angle from this point to the other two points is an acute angle).
+Whether the angles of the three points are acute can be found using the Pythagorean theorem.
