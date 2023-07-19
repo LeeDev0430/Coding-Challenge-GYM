@@ -1,0 +1,21 @@
+ Contest: 100211, problem: Problem H. Selling Tickets
+https://codeforces.com/gym/100211
+
+Summary:
+Groups of at most 4 people are given.
+Each group has a value.
+Barry these people into 9 seats of 4 to get the maximum total satisfaction.
+Total satisfaction is the sum of each person's satisfaction.
+The satisfaction value of each person is the number of people in the same group in the same seat multiplied by the value of the group he belongs to.
+
+
+Editorial:
+This task utilizes brute force and depth first search methods.
+Using the above two algorithms, it is solved in time complexity O(C(36, 4) * n).
+You can see that there is no need to put two groups of people of size 3 and above into a pair of seats.
+If so, you can see that increasing one group to three is a better solution.
+Also, less than 2 people in a group can be ignored as their satisfaction level is 0.
+From the above conditions, each group must place 3 or more people in one seat set or 2 people in one seat set.
+And 1 person left after deployment is ignored.
+In all of these cases, the sum is about C(36, 4).
+All of these placement methods can be obtained by brute forcing using depth first search.

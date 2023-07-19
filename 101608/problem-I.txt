@@ -1,0 +1,15 @@
+
+https://codeforces.com/gym/101608/problem/I
+
+Summary:
+
+An public case was not given in Problem.
+The site asks me to add at least one public case, so I sent a custom case as a public.
+Editorial:
+
+This problem is solved using a threshold optimization algorithm.
+For each connected chunk, we find the longest path, just like we do in trees. This path isn't actually the longest, but this way it has two ends of different branches.
+The font has some weight, so we need to extrude the cells in the path.
+To do this, you can start a multi-source breadth-first search on a cell in the path and run a breadth-first search for length * R iterations.
+We estimate the letter by finding the expected ratio between the length of the longest path we find and the thickness of the font.
+Time complexity is O(n * m).

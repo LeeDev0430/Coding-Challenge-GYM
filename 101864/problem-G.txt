@@ -1,0 +1,18 @@
+Contest: 101864, problem: Problem G - GCD and LCM of 3 numbers
+https://codeforces.com/gym/101864
+
+Summary:
+Given two integers F and G.
+Find the different numbers of the three integer pairs that satisfy the following conditions.
+F is the greatest common divisor of the three integers.
+F is the product of three integers divided by G.
+
+Editorial:
+
+This task utilizes the prime subtraction algorithm, the inclusion exclusion principle and knowledge of number theory.
+It solves in time complexity of O(log(n) * log(n)).
+Let x = a/G, y = b/G, and z = c/G.
+Then F(a,b,c) = a*b*c/G = x*G*y*G*z*G/G and x*y*z = F/G^2 = N.
+If F is not a multiple of G^2, the answer is zero.
+Since x*y*z = F/G^2 = N, x,y,z are divisors of N, and GCD(x,y,z) = 1.
+By factoring N into prime numbers, you can use the inclusion exclusion principle to find the number of possible triple (x, y, z) pairs that satisfy the above condition.
