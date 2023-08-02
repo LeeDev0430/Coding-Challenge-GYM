@@ -1,0 +1,23 @@
+Contest: 100026, problem: Problem A. Codecircles
+https://codeforces.com/gym/100026
+
+Summary:
+An undirected connected graph is given.
+There are no edges involved in the two different simple circular paths.
+Find the number of ways to divide all vertices into groups according to the following condition.
+- Every vertex belongs to exactly one group.
+- Each group has no vertices that are adjacent to each other.
+
+
+Editorial:
+
+This task utilizes knowledge of combinatorial mathematics and dynamic programming.
+This can be done in a time complexity of O(n * n * n).
+The number of ways to fit n elements into non interacting groups is a Stirling number of the first kind, widely known in combinatorial mathematics.
+The time complexity of finding the Stirling number is O(n * n).
+We can use depth first search to break the entire graph into simple recursive paths.
+Using dynamic programming, you can first calculate the number of ways to split into i groups in a circular path.
+Each group split in one circular path can independently merge with groups split in another path.
+It is also multiplied as an independent trial.
+Dynamic programming is expanded to the entire graph by using the Stirling number for the groups divided in each circular path.
+The time complexity of this part is O(n * n * n).
