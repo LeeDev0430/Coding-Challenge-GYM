@@ -1,0 +1,24 @@
+Contest: 103833, problem: H
+https://codeforces.com/gym/103833/problem/H
+
+Summary:
+Given two integer arrays c and p of length n and integers C and P.
+Find the following R for every L (1 <= L <= n).
+R is not less than L.
+It is possible to take certain indices in the interval [L, R] such that the sum of c over them does not exceed C and the sum of p does not exceed P.
+-1 if no R satisfies the above condition, otherwise take the smallest R.
+
+Editorial:
+This task utilizes two-point algorithms and dynamic programming.
+It is solved in O(n) using a two-point algorithm and dynamic programming.
+As can be easily seen, for L and R, when L increases, R increases together.
+Suppose R decreases as L increases.
+Let L1 < L2, R1 > R2, then the interval [L2, R2] is contained in the interval [L1, R1].
+Therefore, the interval [L1, R2] also satisfies the condition since indices taken from the interval [L2, R2] are also included in the interval [L1, R1].
+So when L increases, R does not decrease.
+A two-point algorithm can be used here.
+For the interval [L, R], dynamic programming maintains the maximum value of the sum of ps for which the sum of cs does not exceed x.
+Add elements to the right bin one by one until the maximum above is less than P.
+If the maximum value does not exceed P even when R = n, there is no solution in the interval above L.
+If the solution at L is R, then at L + 1 we remove the index L.
+Then add R until the maximum exceeds P.

@@ -1,0 +1,16 @@
+Contest: 100126, problem: Task B. Frequency Analysis
+https://codeforces.com/gym/100126
+
+Summary:
+Given two integer arrays.
+Find the pair with the maximum length among the pairs of subsegments with the same length where the set of frequency arrays of the elements of the subsegments of the two arrays are the same.
+
+Editorial:
+This task utilizes a hash algorithm.
+It is solved in time complexity O(n * n * log(n)) using hash algorithm.
+I need to get the hash value of the frequency group of the subsegment array.
+That is, we need to generate the hash value of the set.
+First, create an array of random numbers of length n.
+Let the hash value of the set be the sum of the elements of an array of random numbers with each element indexed.
+Then, probabilistically, it is necessary and sufficient for the two groups to have the same hash value.
+For the length of the subsegment, find the hash values of all subsegments of this length and use a map or set data structure to find out if there is the same hash value.
